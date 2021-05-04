@@ -1,0 +1,48 @@
+<h2>Signup form</h2>
+
+<form [formGroup]="signupForm">
+    <div class="table-div">
+        <div class="row-div">
+            <div class="col-div-label">
+                <label for="userName">User name:</label>
+            </div>
+            <div class="col-div-input">
+                <input id="userName" formControlName="userName" type="text" />
+            </div>
+        </div>
+
+        <div class="row-div">
+            <div class="col-div-label">
+                <label for="password">Password:</label>
+            </div>
+            <div class="col-div-input">
+                <input id="password" formControlName="password" type="password" />
+            </div>
+        </div>
+
+        <div class="row-div">
+            <div class="col-div-label">
+                <label for="confirmPassword">Confirm password:</label>
+            </div>
+            <div class="col-div-input">
+                <input id="confirmPassword" formControlName="confirmPassword" type="password" />
+            </div>
+        </div>
+
+        <div class="row-div">
+            <div class="col-div-label">
+                <label for="email">Email:</label>
+            </div>
+            <div class="col-div-input">
+                <input id="email" formControlName="email" type="text" />
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-area">
+        <button type="button" (click)="register()">Submit</button>
+    </div>
+    <div class="link-area">
+        <a routerLink="/login">→Back</a>
+    </div>
+</form>

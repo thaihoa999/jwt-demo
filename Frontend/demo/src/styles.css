@@ -1,0 +1,53 @@
+.error-area {
+    color: firebrick;
+}
+
+button {
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    margin: 4px 2px;
+    padding-right: 15px 32px;
+    display: inline-block;
+    background-color: white;
+}
+
+button > hover {
+    background-color: red;
+}
+
+button.disabled {
+    opacity: 0.5;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    border-radius: 5px;
+    width: 150px;
+    height: 20px;
+}
+
+h2 {
+    margin-left: 70px;
+    color:midnightblue;
+}
+
+.col-div-label {
+    width: 85px;
+    float:left;
+}
+
+.btn-area {
+    margin-left: 140px;
+}
+
+.link-area {
+    margin: 10px 0px 0px 42px;
+}
+
+.row-div {
+    margin-bottom: 3px;
+}
