@@ -26,38 +26,27 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, 
     private authService : AuthService,
-    private formBuilder: FormBuilder) {
-      this.hasError = false;
-    }
+    private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     
   }
 
   login() {
-    this.loadData();
-  }
-
-  private loadData(): Promise<void> {
-    this.hasError = false;
     let userName = this.loginForm.value.userName;
     let password = this.loginForm.value.password;
     let entity = new Login(userName, password);
 
-    return new Promise((resolve, reject) => {
-      this.authService.login(entity).subscribe(data => {
-        this.response.token = data.token;
-        localStorage.setItem('token', data.token);
-        PopupUtils.alertWithSuccess(this.response.message).then(okay => {
-          if (okay) {
-            this.router.navigate(['/user-list']);
-          }
-        });
-        resolve();
-      }, err => {
-        PopupUtils.alertWithFail(err.error.message);
-        reject();
+    this.authService.login(entity).subscribe(data => {
+      this.response.token = data.token;
+      localStorage.setItem('token', data.token);
+      PopupUtils.alertWithSuccess(this.response.message).then(okay => {
+        if (okay) {
+          this.router.navigate(['/user-list']);
+        }
       });
+    }, err => {
+      PopupUtils.alertWithFail(err.error.message);
     });
   }
 
