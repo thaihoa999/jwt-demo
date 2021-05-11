@@ -27,6 +27,9 @@ export class UpdatePasswordComponent implements OnInit {
     }
   }
 
+  /**
+   * Update password
+   */
   updatePassword() {
     let tempToken = new URLSearchParams(window.location.search).get('token');
     this.token = null != tempToken ? tempToken : '';

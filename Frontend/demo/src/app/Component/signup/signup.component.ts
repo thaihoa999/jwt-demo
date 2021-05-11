@@ -28,6 +28,9 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Register user
+   */
   register() {
     let userName = this.signupForm.value.userName;
     let password = this.signupForm.value.password;

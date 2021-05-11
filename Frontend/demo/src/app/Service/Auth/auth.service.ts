@@ -22,8 +22,7 @@ export class AuthService extends BaseService {
   /**
    * Login to system
    * 
-   * @param body 
-   * @returns 
+   * @param  {Login} body
    */
   login(body: Login) {
     let url = AUTH_URL.concat('/login');
@@ -31,6 +30,11 @@ export class AuthService extends BaseService {
     return this.http.post<LoginRes>(url, body);
   }
 
+  /**
+   * Check account has logged in or not
+   * 
+   * @returns boolean
+   */
   isLoggedIn(): boolean {
     // let jwtHelper = new JwtHelperService();
     let token = localStorage.getItem('token');
@@ -39,10 +43,9 @@ export class AuthService extends BaseService {
   }
 
   /**
-   * Signup user
+   * Signup
    * 
-   * @param body
-   * @returns 
+   * @param  {Signup} body
    */
   signup(body: Signup) {
     let url = AUTH_URL.concat('/signup');
@@ -50,12 +53,22 @@ export class AuthService extends BaseService {
     return this.http.post<SignupRes>(url, body);
   }
 
+  /**
+   * Confirm forgot password
+   * 
+   * @param  {string} email
+   */
   confirmForgotPassword(email: string) {
     let url = AUTH_URL.concat("/confirmResetPassword");
 
     return this.http.post<MessageResponse>(url, { email });
   }
 
+  /**
+   * Get all user info
+   * 
+   * @returns Observable
+   */
   getAllUser(): Observable<User[]> {
     let url = USER_URL.concat('/getAllUser');
     let header = this.getHttpHeaders(localStorage.getItem('token'));
@@ -63,6 +76,11 @@ export class AuthService extends BaseService {
     return this.http.get<User[]>(url, { 'headers': header });
   }
 
+  /**
+   * Update passwords
+   * 
+   * @param  {UpdatePassword} body
+   */
   updatePassword(body: UpdatePassword) {
     let url = AUTH_URL.concat('/changePassword');
     // let body = { newPassword, confirmNewPassword };
